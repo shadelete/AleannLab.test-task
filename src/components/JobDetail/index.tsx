@@ -9,6 +9,7 @@ interface IJobDetails {
 }
 
 const JobDetailedContainer: React.FC<IJobDetails> = ({data}) => {
+
 	return (
 		<>
 			{data.map((el:any) => {
