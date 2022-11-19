@@ -24,8 +24,8 @@ const LocationMapContainer = (props:any) => {
 		<Map mapLib={maplibregl}
 			 {...settings}
 			 initialViewState={{
-				 longitude: 0,
-				 latitude: 0,
+				 longitude: props.location.long,
+				 latitude: props.location.lat,
 				 zoom: 1
 			 }}
 			 style={{width: "100%", height: "12rem"}}
