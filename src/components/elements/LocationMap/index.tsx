@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import maplibregl from "maplibre-gl";
 import Map, {Marker} from "react-map-gl";
-import {ImLocation} from "react-icons/im";
+import {LocationIcon} from "../../../constans/icons";
 
 const LocationMapContainer = (props:any) => {
 
@@ -33,7 +33,7 @@ const LocationMapContainer = (props:any) => {
 			 attributionControl={false}
 		>
 			<Marker longitude={props.location.long} latitude={props.location.lat} anchor="bottom">
-				<span className="text-[2rem] text-[#D8D8D8]"><ImLocation/></span>
+				<span className="text-[2rem] text-[#D8D8D8]"><LocationIcon/></span>
 			</Marker>
 		</Map>
 	)

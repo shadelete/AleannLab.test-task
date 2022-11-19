@@ -17,13 +17,6 @@ const instanceGEO = axios.create({
 	}
 });
 
-export const getData = {
-	getData() {
-		return instance.get('')
-			.then((res) => res.data)
-	}
-}
-
 export const getGeo = {
 	getAddress(location: Array<number>)  {
 		return location.map((el:any)=>{
@@ -36,7 +29,7 @@ export const getGeo = {
 }
 
 export const getFullData = async () => {
-	const baseData = await getData.getData();
+	const baseData = await instance.get('').then((res)=>res.data);
 	const geoData = await Promise.all(getGeo.getAddress(baseData.map((el:any)=>{
 		return new Array(el.location.lat,el.location.long)
 	})))

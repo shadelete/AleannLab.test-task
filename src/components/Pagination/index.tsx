@@ -1,28 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import {getData} from "../../api/api";
 import {Link, NavLink, useParams} from "react-router-dom";
 import {LeftIcon, RightIcon} from "../../constans/icons";
 
+interface IData {
+	dataLength: any
+}
 
-const PaginationContainer = () => {
+const PaginationContainer: React.FC<IData> = ({dataLength}) => {
 
 	const pageNumber = Number(useParams().page)
 
 	const [length, setlength] = useState<any>([]);
 	const [page, setPage] = useState<any>(1);
 
-	const prevPage = () => {
-		return pageNumber >= 2 ? setPage(page-1) : 1
-	}
-
-	const nextPage = (n:number) => {
-		return setPage(n+1)
-	}
-
 	useEffect(()=>{
-		getData.getData().then((res) => {
-			setlength(lengthPagesArray(res.length))
-		})
+			setlength(lengthPagesArray(dataLength))
 	},[])
 
 
@@ -57,7 +49,7 @@ const PaginationContainer = () => {
 				</div>
 
 				<div className="p-2">
-					<Link to={`/${ pageNumber < 4 && pageNumber !== 0 ? pageNumber+1 : 4 }`}><span className="text-[#7D859C]">
+					<Link to={`/${ pageNumber < dataLength/5 && pageNumber !== 0 ? pageNumber+1 : dataLength/5 }`}><span className="text-[#7D859C]">
 						<RightIcon/>
 					</span>
 					</Link>

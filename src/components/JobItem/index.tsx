@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link, useParams} from "react-router-dom";
 import {dateParse} from "../../services/dateParse";
-import * as _ from "lodash"
 import JobItem from "./JobItem";
+
+const chunk = require('lodash.chunk')
 
 interface IJobsItem {
 	data: any
@@ -13,7 +14,7 @@ const JobItemContainer: React.FC<IJobsItem> = ({data}) => {
 	const params = Number(useParams().page)
 
 	const listJobsOfPage = (list:any,page:number) => {
-		let n = _.chunk(data,5)
+		let n = chunk(data,5)
 		return n[page-1]
 	}
 

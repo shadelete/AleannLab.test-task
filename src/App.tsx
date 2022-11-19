@@ -1,5 +1,5 @@
 import React, {lazy, Suspense, useEffect, useState} from 'react';
-import {Navigate, Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes, useParams} from "react-router-dom";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import {getFullData} from "./api/api";
 import Preloader from "./components/elements/Preloader";
@@ -9,6 +9,8 @@ const JobBoard = lazy(()=> import("./feature/JobsBoard"))
 const JobDetailed = lazy(()=> import("./feature/JobDetailed"))
 
 function App() {
+
+	const pageNumber = Number(useParams().page)
 
 	const [jobs, setJobs] = useState([{}]);
 	const [isLoading, setLoading] = useState(true);
@@ -32,7 +34,7 @@ function App() {
 			.finally(()=>{
 				setLoading(false)
 			})
-	},[])
+	},[pageNumber])
 
   return (
     <>
