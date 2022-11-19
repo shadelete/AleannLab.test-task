@@ -4,7 +4,6 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const JobBoard = lazy(()=> import("./feature/JobsBoard"))
 const JobDetailed = lazy(()=> import("./feature/JobDetailed"))
 
-
 function App() {
   return (
     <>

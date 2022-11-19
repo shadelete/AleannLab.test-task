@@ -1,9 +1,8 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 import {Slider} from "../../components/Slider/slider";
-import {ImLocation} from "react-icons/im";
 import LocationMap from "../elements/LocationMap";
-import {BookmarkIcon, ButtonArrowIcon, ShareIcon} from "../../constans/icons";
+import {BookmarkIcon, ButtonArrowIcon, LocationIcon, ShareIcon} from "../../constans/icons";
 
 
 interface IJobProps {
@@ -165,7 +164,7 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 								<h2 className="font-bold text-[1.1rem] text-[#E7EAF0]">{addressName}</h2>
 
 								<span className="items-center box leading-4 font-normal">
-									<ImLocation/>
+									<LocationIcon/>
 									{address}
 								</span>
 
