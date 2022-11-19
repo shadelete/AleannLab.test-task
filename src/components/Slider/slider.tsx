@@ -6,23 +6,17 @@ interface images {
 	src: []
 }
 
-const Slider = (props: images) => {
-
-	const mapImage = (src:any) => src.map((el:string)=>{
-		return el;
-	})
+export const Slider = (props: images) => {
 
 	return (
 		<>
 			<Carousel showThumbs={false} showStatus={false} emulateTouch={true} infiniteLoop={true}>
-				{props.src.map((el:any) => {
+				{props.src.map((el:any,index) => {
 					return (
-						<div><img className="h-[10rem] object-center object-cover" src={el} alt="img"/></div>
+						<div key={index}><img className="h-[10rem] object-center object-cover" src={`${el}?random=${index}`} alt="img"/></div>
 					)
 				})}
 			</Carousel>
 		</>
 	);
 };
-
-export default Slider;

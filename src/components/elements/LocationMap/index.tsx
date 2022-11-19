@@ -1,16 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
+import maplibregl from "maplibre-gl";
+import Map, {Marker} from "react-map-gl";
+import {ImLocation} from "react-icons/im";
 
-const Map = () => {
+const LocationMapContainer = (props:any) => {
+
+	const [settings, setsettings] = useState({
+		dragPan: false,
+		dragRotate: false,
+		scrollZoom: false,
+		touchZoom: false,
+		touchRotate: false,
+		keyboard: false,
+		doubleClickZoom: false
+	});
 
 
+	const API:string = '944bf9bd9ad74202ad8c1df47fa680d4'
+
+	const marker:string = 'type:material;color:%23ff3421;icontype:awesome'
 
 	return (
-		<div className="back">
-			<img width="600" height="400"
-				 src="https://maps.geoapify.com/v1/staticmap?style=dark-matter&width=600&height=400&center=lonlat:-122.304378,47.526022&zoom=14&marker=lonlat:-122.304378,47.526022;type:material;color:%23ff3421;icontype:awesome&apiKey=944bf9bd9ad74202ad8c1df47fa680d4"
-				 alt="9228 10th Avenue South, Seattle, WA 98108, United States of America"/>
-		</div>
+		<Map mapLib={maplibregl}
+			 {...settings}
+			 initialViewState={{
+				 longitude: 0,
+				 latitude: 0,
+				 zoom: 1
+			 }}
+			 style={{width: "100%", height: "12rem"}}
+			 mapStyle="https://api.maptiler.com/maps/557c5022-5995-4e3f-af27-60d89e4f60a9/style.json?key=dmmNs7CF7UELp0dTAauQ"
+			 attributionControl={false}
+		>
+			<Marker longitude={props.location.long} latitude={props.location.lat} anchor="bottom">
+				<span className="text-[2rem] text-[#D8D8D8]"><ImLocation/></span>
+			</Marker>
+		</Map>
 	)
 };
 
-export default Map;
+export default LocationMapContainer;

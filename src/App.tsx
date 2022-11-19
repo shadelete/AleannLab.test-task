@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {lazy,Suspense} from 'react';
+import {Navigate, Route, Routes} from "react-router-dom";
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+const JobBoard = lazy(()=> import("./feature/JobsBoard"))
+const JobDetailed = lazy(()=> import("./feature/JobDetailed"))
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+		<Suspense>
+			<Routes>
+				<Route path="/" element={<Navigate to={"/1"}/>}/>
+				<Route path="/:page" element={<JobBoard/>}/>
+				<Route path="/job/:id" element={<JobDetailed/>}/>
+			</Routes>
+		</Suspense>
+    </>
   );
 }
 

@@ -1,3 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  ul, ol {
+    list-style: revert;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +16,61 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #E6E9F2;
+  font-size: 16px;
+}
+
+#root {
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.anim {
+  transition: all .25s ease;
+}
+
+.job-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.box {
+  display: -webkit-box;
+}
+
+.back::after  {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+}
+
+.active {
+  color: #5876C5;
+  /*border-bottom: 2px solid #5876C5;*/
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #5876C5;
+  height: 2px;
+  left: 0;
+}
+
+#my-map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
 }
