@@ -131,18 +131,13 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 							<div className="">
 								<h1 className="text-[#3A4562] font-bold text-[2rem]">Attached images</h1>
 								<hr className="border-solid border-[100%] border-[#3A4562] opacity-[0.13]"/>
-								<div className="pt-[1rem]">
-									<div className="flex-row gap-5 hidden lg:flex">
+								<div className="pt-[1rem] overflow-hidden">
+									<div className="slider">
 										{pictures.map((el:string,index)=>{
 											return (
-												<div key={index}>
-													<img src={`${el}?random=${index}`} alt="image"/>
-												</div>
+												<img className="rounded-xl" key={index} src={`${el}?random=${index}`} alt="image"/>
 											)
 										})}
-									</div>
-									<div className="lg:hidden">
-										<Slider src={pictures}/>
 									</div>
 								</div>
 							</div>
