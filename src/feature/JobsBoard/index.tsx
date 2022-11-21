@@ -9,7 +9,7 @@ interface IJobProps {
 
 const JobBoard: React.FC<IJobProps> = ({data}) => {
 	return (
-		<div className="container p-2 mx-auto max-w-2xl flex flex-col gap-2 h-full">
+		<div className="container p-2 mx-auto max-w-basic flex flex-col gap-2 h-full">
 			<JobItemContainer data={data}/>
 			<PaginationContainer dataLength={data.length}/>
 		</div>
