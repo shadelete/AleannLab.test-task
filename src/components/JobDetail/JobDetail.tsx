@@ -13,7 +13,7 @@ interface IJobProps {
 	email: string,
 	employment: [],
 	id: string,
-	location: [],
+	location: { lat:number, long:number },
 	name: string,
 	phone: string,
 	pictures: [],
@@ -154,11 +154,11 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 					</div>
 					<div className="rounded-xl bg-[#2A3047] h-fit overflow-hidden">
 
-						<div className="py-[1.8rem] px-[3rem] text-[#E8EBF3]">
-							<ul className="flex flex-col gap-[0.5rem]">
+						<div className="py-[1.8rem] px-[3rem] text-[#E8EBF3] relative card-bg overflow-hidden">
+							<ul className="flex flex-col gap-[0.5rem] z-10">
 								<h2 className="font-bold text-[1.1rem] text-[#E7EAF0]">{addressName}</h2>
 
-								<span className="items-center box leading-4 font-normal">
+								<span className="items-center box leading-4 font-normal inline-flex gap-2">
 									<LocationIcon/>
 									{address}
 								</span>

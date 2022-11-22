@@ -16,6 +16,22 @@
   gap: 1rem;
 }
 
+.card-bg::after {
+  content: '';
+  position: absolute;
+  top: -5rem;
+  left: -10rem;
+  width: 20rem;
+  height: 20rem;
+  background-color: #202336;
+  z-index: 5;
+  border-radius: 50%;
+}
+
+.card-bg > ul > * {
+  z-index: 20;
+}
+
 .slider::-webkit-scrollbar {
   display: none;
 }

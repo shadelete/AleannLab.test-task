@@ -4,7 +4,7 @@ import JobItemContainer from "../../components/JobItem";
 
 
 interface IJobProps {
-	data: any
+	data: {}[]
 }
 
 const JobBoard: React.FC<IJobProps> = ({data}) => {

@@ -3,14 +3,14 @@ import JobDetailedContainer from "../../components/JobDetail";
 import {useParams} from "react-router-dom";
 
 interface IJobProps {
-	data: any
+	data: {}[]
 }
 
 const JobDetailed: React.FC<IJobProps> = ({data}) => {
 
 	const params = useParams();
 
-	const [job, setJob] = useState([[]]);
+	const [job, setJob] = useState([{}]);
 	const [isFiltering, setFiltering] = useState(true);
 
 	useEffect(()=>{

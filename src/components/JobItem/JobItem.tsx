@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Rating from "../elements/Rating";
-import {BookmarkIcon, LocationIcon, RatingIcon, ShareIcon} from "../../constans/icons";
+import {BookmarkIcon, LocationIcon} from "../../constans/icons";
 
 interface IJobsItem {
 	title: string,
@@ -9,11 +9,10 @@ interface IJobsItem {
 	name: string
 	pictures: (string)[],
 	id: string,
-	location: any,
 	addressLine: string
 }
 
-const JobItem: React.FC<IJobsItem> = ({title,address,createdAt,name,pictures,id,location,addressLine}) => {
+const JobItem: React.FC<IJobsItem> = ({title,address,createdAt,name,pictures,id,addressLine}) => {
 
 
 	return (

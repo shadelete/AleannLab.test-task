@@ -23,7 +23,7 @@ function App() {
 				setJobs(res)
 			})
 			.catch((e)=>{
-				console.log(e)
+				console.error(e)
 				setError(true)
 				setErrorStatus({
 					...errorStatus,

@@ -6,7 +6,7 @@ import JobItem from "./JobItem";
 const chunk = require('lodash.chunk')
 
 interface IJobsItem {
-	data: any
+	data: {}[]
 }
 
 const JobItemContainer: React.FC<IJobsItem> = ({data}) => {
@@ -30,7 +30,6 @@ const JobItemContainer: React.FC<IJobsItem> = ({data}) => {
 							name={el.job.name}
 							pictures={el.job.pictures}
 							id={el.job.id}
-							location={[el.job.location.long,el.job.location.lat]}
 							addressLine={el.geo.address_line1 || el.geo.address_line2}
 						/>
 					</Link>

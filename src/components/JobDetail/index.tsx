@@ -5,7 +5,7 @@ import {parseDesc} from "../../services/parseDesc";
 import {salaryParse} from "../../services/salaryParse";
 
 interface IJobDetails {
-	data: object[]
+	data: {}[]
 }
 
 const JobDetailedContainer: React.FC<IJobDetails> = ({data}) => {
