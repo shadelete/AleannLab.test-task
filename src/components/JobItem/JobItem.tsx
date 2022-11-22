@@ -12,7 +12,7 @@ interface IJobsItem {
 	addressLine: string
 }
 
-const JobItem: React.FC<IJobsItem> = ({title,address,createdAt,name,pictures,id,addressLine}) => {
+const JobItem: React.FC<IJobsItem> = ({title, address, createdAt, name, pictures, id, addressLine}) => {
 
 
 	return (
@@ -21,7 +21,8 @@ const JobItem: React.FC<IJobsItem> = ({title,address,createdAt,name,pictures,id,
 		">
 			<div className="grid grid-cols-[1fr_2fr] max-h-[12rem] lg:flex">
 
-				<div className="rounded-full flex items-center justify-center px-4 grid-span-1 lg:basis-1/12 lg:min-w-[7rem]">
+				<div
+					className="rounded-full flex items-center justify-center px-4 grid-span-1 lg:basis-1/12 lg:min-w-[7rem]">
 					<img
 						className="rounded-full object-cover h-20 w-20 "
 						src={`${pictures[0]}?random=${id}`}
@@ -32,14 +33,16 @@ const JobItem: React.FC<IJobsItem> = ({title,address,createdAt,name,pictures,id,
 				<div className="flex flex-col p-4 gap-4 lg:basis-full lg:flex-row">
 					<div className="flex flex-row justify-between lg:order-2 lg:basis-4/12">
 
-						<div className="flex flex-row items-center justify-between col-auto max-h-4 min-h-full lg:order-1">
+						<div
+							className="flex flex-row items-center justify-between col-auto max-h-4 min-h-full lg:order-1">
 							<span className="text-[#384564] text-[1.5rem] inline-flex">
 								<Rating/>
 							</span>
 						</div>
 
 						<div className="flex lg:order-2 lg:flex-col lg:justify-between items-end">
-							<div className="text-[#878D9D] text-[.8rem] font-small col-start-2 col-end-5 text-end grid items-center max-h-4 lg:order-3">
+							<div
+								className="text-[#878D9D] text-[.8rem] font-small col-start-2 col-end-5 text-end grid items-center max-h-4 lg:order-3">
 								<p>{createdAt}</p>
 							</div>
 

@@ -13,14 +13,14 @@ const JobItemContainer: React.FC<IJobsItem> = ({data}) => {
 
 	const params = Number(useParams().page)
 
-	const listJobsOfPage = (list:any,page:number) => {
-		let n = chunk(data,5)
-		return n[page-1]
+	const listJobsOfPage = (list: any, page: number) => {
+		let n = chunk(data, 5)
+		return n[page - 1]
 	}
 
 	return (
 		<>
-			{listJobsOfPage(data,params || 1).map((el:any) => {
+			{listJobsOfPage(data, params || 1).map((el: any) => {
 				return (
 					<Link key={el.job.id} to={`/job/${el.job.id}`}>
 						<JobItem

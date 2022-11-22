@@ -1,6 +1,5 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
-import {Slider} from "../../components/Slider/slider";
 import LocationMap from "../elements/LocationMap";
 import {BookmarkIcon, ButtonArrowIcon, LocationIcon, ShareIcon} from "../../constans/icons";
 
@@ -9,11 +8,11 @@ interface IJobProps {
 	address: string,
 	benefits: [],
 	createdAt: string,
-	description:any,
+	description: any,
 	email: string,
 	employment: [],
 	id: string,
-	location: { lat:number, long:number },
+	location: { lat: number, long: number },
 	name: string,
 	phone: string,
 	pictures: [],
@@ -22,7 +21,22 @@ interface IJobProps {
 	addressName: string
 }
 
-const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,description,email,employment,id,location,name,phone,pictures,salary,title,addressName}) => {
+const JobDetailed: React.FC<IJobProps> = ({
+											  address,
+											  benefits,
+											  createdAt,
+											  description,
+											  email,
+											  employment,
+											  id,
+											  location,
+											  name,
+											  phone,
+											  pictures,
+											  salary,
+											  title,
+											  addressName
+										  }) => {
 
 
 	const navigate = useNavigate()
@@ -38,7 +52,8 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 
 							<div className="inline-flex items-center gap-5 text-[0.8rem] text-[#3A4562] font-normal">
 								<span className="inline-flex items-center gap-1 cursor-pointer"><BookmarkIcon/> Save to my list</span>
-								<span className="inline-flex items-center gap-1 cursor-pointer"><ShareIcon/> Share</span>
+								<span
+									className="inline-flex items-center gap-1 cursor-pointer"><ShareIcon/> Share</span>
 							</div>
 
 						</div>
@@ -54,12 +69,14 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 								<span className="text-[#38415D9A] text-[.8rem]">{createdAt}</span>
 							</div>
 							<div className="flex flex-col items-end">
-								<span className="text-[#38415DD1] text-[1.1rem] tracking-[-0.6px]">Brutto, per year</span>
+								<span
+									className="text-[#38415DD1] text-[1.1rem] tracking-[-0.6px]">Brutto, per year</span>
 								<p className="text-[#3A4562] font-bold text-[1.2]">{salary}</p>
 							</div>
 						</div>
 
 						<div className="flex flex-col text-[#38415DD1] gap-8">
+
 							<div className="">
 								<p>{description.mainDesc}</p>
 							</div>
@@ -67,7 +84,7 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 							<div className="">
 								<h2 className="text-[#3A4562] font-bold text-[1.5rem] mb-8">Responsopilities</h2>
 
-								{description.responsopilities.map((el:any,index:number)=> {
+								{description.responsopilities.map((el: any, index: number) => {
 									return (
 										<p key={index}>
 											{el}
@@ -81,7 +98,7 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 								<p>Our physicians enjoy a wide range of benefits, including:</p>
 								<ul className="flex flex-col list-[square] list-inside">
 
-									{description.benefits.map((el:any,index:number)=>{
+									{description.benefits.map((el: any, index: number) => {
 										return <li key={index} className="">{el}</li>
 									})}
 								</ul>
@@ -101,7 +118,7 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 								<div className="flex flex-col gap-2">
 									<span className="text-[rgba(56,65,93,0.82)]">Employment type</span>
 									<div className="flex flex-row gap-2">
-										{employment.map((el:string,index)=>{
+										{employment.map((el: string, index) => {
 											return (
 												<span key={index} className="text-[#55699E] font-bold px-4 py-2 rounded-md border
 																border-solid bg-[rgba(161,177,219,0.3)] border-[rgba(0,0,0,0.12)]">
@@ -115,12 +132,12 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 								<div className="flex flex-col gap-2">
 									<span className="text-[rgba(56,65,93,0.82)]">Benefits</span>
 									<div className="flex flex-row gap-2">
-										{benefits.map((el:string,index)=>{
+										{benefits.map((el: string, index) => {
 											return (
-												<span key={index} className="text-[#FFCF00] font-bold px-4 py-2 rounded-md border
-																border-solid bg-[#fff6cc] border-[#FFCF00]">
-																{el}
-															</span>
+												<span key={index}
+													  className="text-[#FFCF00] font-bold px-4 py-2 rounded-md border border-solid bg-[#fff6cc] border-[#FFCF00]">
+													{el}
+												</span>
 											)
 										})}
 									</div>
@@ -133,9 +150,10 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 								<hr className="border-solid border-[100%] border-[#3A4562] opacity-[0.13]"/>
 								<div className="pt-[1rem] overflow-hidden">
 									<div className="slider">
-										{pictures.map((el:string,index)=>{
+										{pictures.map((el: string, index) => {
 											return (
-												<img className="rounded-xl" key={index} src={`${el}?random=${index}`} alt="image"/>
+												<img className="rounded-xl" key={index} src={`${el}?random=${index}`}
+													 alt="image"/>
 											)
 										})}
 									</div>
@@ -143,7 +161,8 @@ const JobDetailed: React.FC<IJobProps> = ({address, benefits, createdAt,descript
 							</div>
 
 							<div>
-								<button onClick={() => navigate(-1)} className="gap-5 uppercase inline-flex items-center justify-center text-[##3A4562] bg-[#E4E5EA] py-[1rem] px-[1.4rem] rounded-xl font-medium">
+								<button onClick={() => navigate(-1)}
+										className="gap-5 uppercase inline-flex items-center justify-center text-[##3A4562] bg-[#E4E5EA] py-[1rem] px-[1.4rem] rounded-xl font-medium">
 									<span className="text-[1.3rem]"><ButtonArrowIcon/></span>
 									return to job board
 								</button>

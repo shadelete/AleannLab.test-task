@@ -5,8 +5,8 @@ import {getFullData} from "./api/api";
 import Preloader from "./components/elements/Preloader";
 import ErrorPage from "./components/elements/Error";
 
-const JobBoard = lazy(()=> import("./feature/JobsBoard"))
-const JobDetailed = lazy(()=> import("./feature/JobDetailed"))
+const JobBoard = lazy(() => import("./feature/JobsBoard"))
+const JobDetailed = lazy(() => import("./feature/JobDetailed"))
 
 function App() {
 
@@ -15,14 +15,14 @@ function App() {
 	const [jobs, setJobs] = useState([{}]);
 	const [isLoading, setLoading] = useState(true);
 	const [isError, setError] = useState(false);
-	const [errorStatus, setErrorStatus] = useState({code: 0,message:'Unnamed Error'});
+	const [errorStatus, setErrorStatus] = useState({code: 0, message: 'Unnamed Error'});
 
 	useEffect(() => {
 		getFullData()
-			.then((res)=> {
+			.then((res) => {
 				setJobs(res)
 			})
-			.catch((e)=>{
+			.catch((e) => {
 				console.error(e)
 				setError(true)
 				setErrorStatus({
@@ -31,30 +31,30 @@ function App() {
 					message: e.response.data.error
 				})
 			})
-			.finally(()=>{
+			.finally(() => {
 				setLoading(false)
 			})
-	},[pageNumber])
+	}, [pageNumber])
 
-  return (
-    <>
-		<Suspense>
-			{
-				isLoading
-					? 	<Preloader/>
-					: 	isError
-						?	<ErrorPage code={errorStatus.code} message={errorStatus.message}/>
-						: 	<>
-							<Routes>
-								<Route path="/" element={<Navigate to={"/1"}/>}/>
-								<Route path="/:page" element={<JobBoard data={jobs}/>}/>
-								<Route path="/job/:id" element={<JobDetailed data={jobs}/>}/>
-							</Routes>
-						</>
-			}
-		</Suspense>
-    </>
-  );
+	return (
+		<>
+			<Suspense>
+				{
+					isLoading
+						? <Preloader/>
+						: isError
+							? <ErrorPage code={errorStatus.code} message={errorStatus.message}/>
+							: <>
+								<Routes>
+									<Route path="/" element={<Navigate to={"/1"}/>}/>
+									<Route path="/:page" element={<JobBoard data={jobs}/>}/>
+									<Route path="/job/:id" element={<JobDetailed data={jobs}/>}/>
+								</Routes>
+							</>
+				}
+			</Suspense>
+		</>
+	);
 }
 
 export default App;

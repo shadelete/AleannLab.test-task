@@ -13,10 +13,10 @@ const JobDetailed: React.FC<IJobProps> = ({data}) => {
 	const [job, setJob] = useState([{}]);
 	const [isFiltering, setFiltering] = useState(true);
 
-	useEffect(()=>{
+	useEffect(() => {
 		const findJob = async () => {
-			await setJob(()=> {
-				return data.filter((el:any) => {
+			await setJob(() => {
+				return data.filter((el: any) => {
 					return el.job.id == params.id;
 				})
 			})
@@ -24,12 +24,12 @@ const JobDetailed: React.FC<IJobProps> = ({data}) => {
 		}
 
 		findJob()
-	},[])
+	}, [])
 
 	return (
 		<>
 			<div className="h-full">
-				{ isFiltering || <JobDetailedContainer data={job}/> }
+				{isFiltering || <JobDetailedContainer data={job}/>}
 			</div>
 		</>
 

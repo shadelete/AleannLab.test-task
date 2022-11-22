@@ -12,7 +12,7 @@ const JobDetailedContainer: React.FC<IJobDetails> = ({data}) => {
 
 	return (
 		<>
-			{data.map((el:any) => {
+			{data.map((el: any) => {
 				return (
 					<JobDetail
 						address={el.job.address}
